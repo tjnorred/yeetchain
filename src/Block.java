@@ -11,5 +11,13 @@ public class Block {
         this.data = data;
         this.prevHash = prevHash;
         this.timeStamp = new Date().getTime();
+        this.hash = calculateHash();
+    }
+
+    public String calculateHash() {
+        String calculatedhash = yeetUtility.hashIt(
+                prevHash + Long.toString(timeStamp) + data);
+        return calculatedhash;
     }
 }
+
